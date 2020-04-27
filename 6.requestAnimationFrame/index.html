@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame</title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame
+        || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+        let box = document.getElementById("box");
+        let left = 0;
+        //触发执行持续性回调
+        requestAnimationFrame(step);
+
+        function step() {
+            if(left < window.innerWidth - 200) {
+                left +=1;
+                box.style.marginLeft = `${left}px`;
+                requestAnimationFrame(step);
+            }
+        }
+    </script>
+</body>
+</html>

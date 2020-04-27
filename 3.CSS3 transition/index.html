@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 transition</title>
+    <style>
+        body,div {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            transition: all 1s ease-in-out 0s;
+        }
+        #box:hover {
+            width: 300px;
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+<body>
+    <!--tansition是在元素样式或状态改变时进行平滑的过渡效果-->
+    <!--主线程计算样式，每次计算后合成线程都需要绘制到GPU再渲染到屏幕上，所以transition可能会造成页面卡顿-->
+    <div id="box">鼠标滑过</div>
+</body>
+</html>

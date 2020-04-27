@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript直接使用动画</title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById("box");
+        let left = 0;
+        //设置定时器改变元素样式的marginLeft属性，到达可视窗口右边时停止移动
+        let timer = setInterval(function () {
+            if (left < window.innerWidth - 200) {
+                box.style.marginLeft = `${left}px`;
+                left++;
+            }
+            else {
+                clearInterval(timer);
+            }
+        }, 16);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas动画</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        let left = 0;
+        let timer = setInterval(function() {
+            //清空画布
+            ctx.clearRect(0, 0, 500, 500);
+            ctx.beginPath();
+            //填充颜色
+            ctx.fillStyle = "#f00";
+            //在新的位置上绘制
+            ctx.fillRect(left , 0, 100, 100);  //起点（x,y）宽度、高度
+            ctx.stroke();
+            if(left > 500) {
+                clearInterval(timer);
+            }
+            left += 1;
+        }, 16)
+    </script>
+</body>
+</html>
